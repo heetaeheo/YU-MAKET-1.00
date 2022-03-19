@@ -30,8 +30,7 @@ import java.util.*
  * @description
  */
 @RequiresApi(Build.VERSION_CODES.O)
-class MyInfoFragment : BaseFragment<MyInfoViewModel, FragmentMyInfoBinding>() {
-    override val viewModel by viewModel<MyInfoViewModel>()
+class MyInfoFragment : BaseFragment<FragmentMyInfoBinding>() {
 
     val requestCode = 101;
     private val check = true;

@@ -5,15 +5,10 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication23.R
 import com.example.myapplication23.databinding.ActivityPersonalBinding
 import com.example.myapplication23.screen.base.BaseActivity
-import com.example.myapplication23.screen.myinfo.customerservice.CSViewModel
-import com.example.myapplication23.screen.myinfo.customerservice.terms.TermsFragment
-import org.koin.android.viewmodel.ext.android.viewModel
 
-class PersonalActivity: BaseActivity<CSViewModel, ActivityPersonalBinding>() {
+class PersonalActivity: BaseActivity<ActivityPersonalBinding>() {
 
 
-
-    override val viewModel by viewModel<CSViewModel>()
 
 
     override fun getViewBinding(): ActivityPersonalBinding =

@@ -28,7 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity
-    : BaseActivity<MainViewModel, ActivityMainBinding>(),
+    : BaseActivity< ActivityMainBinding>(),
     BottomNavigationView.OnNavigationItemSelectedListener {
 
     companion object {
@@ -61,7 +61,6 @@ class MainActivity
     private lateinit var locationManager: LocationManager
     private lateinit var myLocationListener: MyLocationListener
 
-    override val viewModel by viewModel<MainViewModel>()
 
     override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
@@ -95,13 +94,8 @@ class MainActivity
         // TODO show home fragment
         showFragment(HomeFragment.newInstance(), HomeFragment.TAG)
         locationTitleTextView.setOnClickListener {
-            viewModel.getMapSearchInfo()?.let { mapInfo ->
-//                changeLocationLauncher.launch(
-//                    MyLocationActivity.newIntent(
-//                        requireContext(), mapInfo
-//                    )
-//                )
-            }
+
+
         }
 
         // TODO
@@ -131,15 +125,9 @@ class MainActivity
                 return true
             }
 
-            R.id.order_list -> {
-                showFragment(OrderListFragment.newInstance(), OrderListFragment.TAG)
-                return true
-            }
 
-            R.id.like -> {
-                showFragment(LikeFragment.newInstance(), LikeFragment.TAG)
-                return true
-            }
+
+
 
             R.id.map -> {
                 showFragment(MapFragment.newInstance(), MapFragment.TAG)
@@ -190,12 +178,7 @@ class MainActivity
     inner class MyLocationListener : LocationListener {
         override fun onLocationChanged(location: Location) {
 //            binding.locationTitleTextView.text = "${location.latitude}, ${location.longitude}"
-            viewModel.getReverseGeoInformation(
-                LocationLatLngEntity(
-                    latitude = location.latitude,
-                    longitude = location.longitude
-                )
-            )
+
 
             removeLocationListener()
         }

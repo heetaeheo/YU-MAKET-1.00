@@ -1,13 +1,9 @@
 package com.example.myapplication23.screen.myinfo.customerservice.terms
 
 import android.content.Intent
-import com.example.myapplication23.R
 import com.example.myapplication23.databinding.FragmentTermsBinding
 import com.example.myapplication23.screen.MainActivity
 import com.example.myapplication23.screen.base.BaseFragment
-import com.example.myapplication23.screen.myinfo.MyInfoFragment
-import com.example.myapplication23.screen.myinfo.customerservice.CSViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class TermsFragment : BaseFragment<CSViewModel,FragmentTermsBinding>() {
 

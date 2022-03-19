@@ -19,14 +19,12 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * @description
  */
 
-class CSActivity : BaseActivity<CSViewModel, ActivityCsBinding>() {
+class CSActivity : BaseActivity< ActivityCsBinding>() {
 
     override fun getViewBinding(): ActivityCsBinding
     = ActivityCsBinding.inflate(layoutInflater)
 
-    override val viewModel by viewModel<CSViewModel>(
 
-    )
 
     override fun observeData() = with(binding) {
              //TODO()

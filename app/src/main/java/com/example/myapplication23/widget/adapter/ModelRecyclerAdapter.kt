@@ -1,11 +1,9 @@
 package com.example.myapplication23.widget.adapter
 
-import android.content.res.loader.ResourcesProvider
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.myapplication23.model.CellType
 import com.example.myapplication23.model.Model
-import com.example.myapplication23.screen.base.BaseViewModel
 import com.example.myapplication23.util.mapper.ViewHolderMapper
 import com.example.myapplication23.widget.adapter.listener.AdapterListener
 import com.example.myapplication23.widget.adapter.viewholder.ModelViewHolder

@@ -2,7 +2,6 @@ package com.example.myapplication23.widget.adapter.viewholder.cs
 
 import com.example.myapplication23.databinding.ViewholderCsItemBinding
 import com.example.myapplication23.model.customerservicelist.CSModel
-import com.example.myapplication23.screen.base.BaseViewModel
 import com.example.myapplication23.widget.adapter.listener.AdapterListener
 import com.example.myapplication23.widget.adapter.listener.customerservice.CSModelListener
 import com.example.myapplication23.widget.adapter.viewholder.ModelViewHolder

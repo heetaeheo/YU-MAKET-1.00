@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import com.example.myapplication23.databinding.*
 import com.example.myapplication23.model.CellType
 import com.example.myapplication23.model.Model
-import com.example.myapplication23.screen.base.BaseViewModel
 import com.example.myapplication23.widget.adapter.viewholder.ModelViewHolder
 
 import com.example.myapplication23.widget.adapter.viewholder.cs.CSViewHolder

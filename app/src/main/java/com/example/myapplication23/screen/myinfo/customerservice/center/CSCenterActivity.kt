@@ -6,8 +6,6 @@ import com.example.myapplication23.R
 import com.example.myapplication23.databinding.ActivityCsCenterBinding
 import com.example.myapplication23.screen.base.BaseActivity
 import com.example.myapplication23.screen.myinfo.customerservice.CSFragment
-import com.example.myapplication23.screen.myinfo.customerservice.CSViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * @author HeeTae Heo(main),
@@ -16,13 +14,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * @throws
  * @description
  */
-class CSCenterActivity : BaseActivity<CSViewModel, ActivityCsCenterBinding>() {
+class CSCenterActivity : BaseActivity<ActivityCsCenterBinding>() {
 
     override fun getViewBinding(): ActivityCsCenterBinding = ActivityCsCenterBinding.inflate(layoutInflater)
 
-    override val viewModel by viewModel<CSViewModel>(
-
-    )
 
     override fun observeData() = with(binding) {
         //TODO()

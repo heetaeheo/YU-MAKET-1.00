@@ -5,9 +5,7 @@ import android.net.Uri
 import android.widget.Toast
 import com.example.myapplication23.databinding.FragmentEmailBinding
 import com.example.myapplication23.screen.base.BaseFragment
-import com.example.myapplication23.screen.myinfo.customerservice.CSViewModel
 import com.example.myapplication23.screen.myinfo.customerservice.center.CSCenterActivity
-import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * @author HeeTae Heo(main),
@@ -16,10 +14,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * @throws
  * @description
  */
-class EmailFragment  : BaseFragment<CSViewModel, FragmentEmailBinding>() {
+class EmailFragment  : BaseFragment< FragmentEmailBinding>() {
     private val requestCode = 101
 
-    override val viewModel by viewModel<CSViewModel>()
+
 
 
     override fun getViewBinding(): FragmentEmailBinding =

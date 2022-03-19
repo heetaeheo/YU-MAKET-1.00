@@ -2,24 +2,25 @@ package com.example.myapplication23.screen.home
 
 
 import androidx.core.view.isVisible
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myapplication23.databinding.FragmentHomeBinding
 import com.example.myapplication23.screen.base.BaseFragment
 import com.example.myapplication23.screen.home.homelist.HomeCategory
 import com.example.myapplication23.screen.home.homelist.HomeListFragment
+import com.example.myapplication23.screen.home.homelist.HomeListViewModel
 import com.example.myapplication23.util.LocationData
 import com.example.myapplication23.util.LocationState
 import com.example.myapplication23.widget.adapter.HomeListFragmentPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
-
+import org.koin.core.parameter.parametersOf
 
 
 class HomeFragment
-    : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
+    : BaseFragment<FragmentHomeBinding>() {
 
     private lateinit var viewPagerAdapter: HomeListFragmentPagerAdapter
 
-    override val viewModel by viewModel<HomeViewModel>()
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
@@ -49,11 +50,7 @@ class HomeFragment
 //                RestaurantListFragment.newInstance(it, locationLatLng)
                 HomeListFragment.newInstance(it)
             }
-            viewPagerAdapter = HomeListFragmentPagerAdapter(
-                this@HomeFragment,
-                homeListFragmentList,
-//                locationLatLng
-            )
+
             viewPager.adapter = viewPagerAdapter
 
             viewPager.offscreenPageLimit = homeCategory.size

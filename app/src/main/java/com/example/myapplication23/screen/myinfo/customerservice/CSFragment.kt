@@ -23,11 +23,11 @@ import com.example.myapplication23.widget.adapter.HomeListFragmentPagerAdapter
 
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class CSFragment : BaseFragment<CSViewModel, FragmentCsBinding>() {
+class CSFragment : BaseFragment< FragmentCsBinding>() {
 
     private lateinit var viewAdapter: HomeListFragmentPagerAdapter
 
-    override val viewModel by viewModel<CSViewModel>()
+
 
     override fun getViewBinding(): FragmentCsBinding =
         FragmentCsBinding.inflate(layoutInflater)
@@ -51,20 +51,13 @@ class CSFragment : BaseFragment<CSViewModel, FragmentCsBinding>() {
             }
 
 
-            viewPagerCs.adapter = HomeListFragmentPagerAdapter(
-                this@CSFragment,
-                csListFragmentList
-            )
-            viewPagerCs.offscreenPageLimit = 1
+
         }
 
             binding.intentmyinfo.setOnClickListener {
                 showMyinfo(MainActivity())
             }
 
-        binding.editBtn.setOnClickListener {
-            editEmail(EmailFragment())
-        }
 
         binding.back.setOnClickListener {
             back()
@@ -73,12 +66,6 @@ class CSFragment : BaseFragment<CSViewModel, FragmentCsBinding>() {
 
         }
 
-    private fun editEmail(fragment: EmailFragment){
-        requireActivity().supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragmentContainer,EmailFragment.newInstance(),EmailFragment.TAG)
-            .commit()
-    }
 
 
     private fun showMyinfo(activity: MainActivity){

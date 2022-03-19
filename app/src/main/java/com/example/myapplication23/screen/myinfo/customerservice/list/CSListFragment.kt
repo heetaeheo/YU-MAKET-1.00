@@ -24,52 +24,20 @@ import org.koin.core.parameter.parametersOf
  * @description
  */
 
-class CSListFragment : BaseFragment<CSListViewModel, FragmentCsListBinding>() {
+class CSListFragment : BaseFragment< FragmentCsListBinding>() {
 
-    override val viewModel by viewModel<CSListViewModel> {
-        parametersOf(csCategory)
-    }
-    private val csCategory by lazy {
-        arguments?.getSerializable(CS_CATEGORY_KEY) as CSCategory
-    }
+
+
 
     override fun getViewBinding(): FragmentCsListBinding =
         FragmentCsListBinding.inflate(layoutInflater)
 
-    override fun observeData() = with(viewModel) {
-        csListData.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-    }
 
     private val resourcesProvider by inject<ResourcesProvider>()
 
-    private val adapter by lazy {
-        ModelRecyclerAdapter<CSModel, CSListViewModel>(
-           listOf(), viewModel,
-            adapterListener = when(csCategory){
-                CSCategory.TOTAL -> object : CSModelListener {
-                    override fun onClickItem(listModel: CSModel) {
-                        val intent = Intent(context, CSDetailActivity::class.java).apply {
-                            putExtra("CSTitle", listModel.csTitle)
-                            putExtra("CSContent", listModel.csContent)
-                            putExtra("CSAuthor", listModel.csAuthor)
-                            putExtra("CSid", listModel.id)
-                        }
-                        startActivity(intent)
-                    }
-                }
-            }
 
-        )
-    }
 
-    override fun initViews() = with(binding){
-        super.initViews()
-        csRecyclerView.adapter = adapter
-        csRecyclerView.layoutManager = LinearLayoutManager(this@CSListFragment.context)
 
-    }
     companion object {
         const val CS_CATEGORY_KEY = "CSCategoryKey"
         fun newInstance(csCategory: CSCategory): CSListFragment {
@@ -81,6 +49,10 @@ class CSListFragment : BaseFragment<CSListViewModel, FragmentCsListBinding>() {
                 arguments = bundle
             }
         }
+    }
+
+    override fun observeData() {
+
     }
 
 

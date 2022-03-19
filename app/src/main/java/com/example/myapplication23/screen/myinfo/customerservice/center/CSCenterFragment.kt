@@ -15,9 +15,7 @@ import com.example.myapplication23.screen.MainActivity
 import com.example.myapplication23.screen.base.BaseFragment
 import com.example.myapplication23.screen.myinfo.customerservice.CSActivity
 import com.example.myapplication23.screen.myinfo.customerservice.CSFragment
-import com.example.myapplication23.screen.myinfo.customerservice.CSViewModel
 import com.example.myapplication23.screen.myinfo.customerservice.email.EmailFragment
-import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * @author HeeTae Heo(main),
@@ -27,9 +25,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * @description
  */
 
-class CSCenterFragment : BaseFragment<CSViewModel,FragmentCsCenterBinding>() {
+class CSCenterFragment : BaseFragment<FragmentCsCenterBinding>() {
 
-    override val viewModel by viewModel<CSViewModel>()
 
     override fun getViewBinding(): FragmentCsCenterBinding =
         FragmentCsCenterBinding.inflate(layoutInflater)

@@ -10,15 +10,13 @@ import androidx.viewbinding.ViewBinding
 import com.example.myapplication23.screen.myinfo.MyInfoFragment
 import kotlinx.coroutines.Job
 
-abstract class BaseFragment<VM: BaseViewModel, VB: ViewBinding>: Fragment() {
+abstract class BaseFragment<VB: ViewBinding>: Fragment() {
 
-    abstract val viewModel: VM
+
 
     protected lateinit var binding: VB
 
     abstract fun getViewBinding(): VB
-
-    private lateinit var fetchJob: Job
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = getViewBinding()
@@ -31,11 +29,7 @@ abstract class BaseFragment<VM: BaseViewModel, VB: ViewBinding>: Fragment() {
     }
 
     open fun initState() {
-        arguments?.let {
-            viewModel.storeState(it)
-        }
         initViews()
-        fetchJob = viewModel.fetchData()
         observeData()
     }
 
@@ -43,12 +37,6 @@ abstract class BaseFragment<VM: BaseViewModel, VB: ViewBinding>: Fragment() {
 
     abstract fun observeData()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        if (fetchJob.isActive) {
-            fetchJob.cancel()
-        }
-    }
 
 //    abstract fun AppCompatDelegateImpl(activity: MyInfoFragment, callback: Any)
 
